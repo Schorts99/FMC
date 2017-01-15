@@ -1,0 +1,12 @@
+.row.middle-xs.medium-top-space
+	.col-xs-2.col-md-1
+		= circle_img friendship.student_view.avatar.url(:thumb), 75
+	.col-xs-7.col-md-7.text-left
+		= friendship.student_view.name + " " + friendship.student_view.last_name
+		%p
+			Grado:
+			= friendship.student.grade
+			Grupo:
+			= friendship.student.group
+	.col-xs-3.col-md-4.text-right
+		= friendship.status_or_buttons

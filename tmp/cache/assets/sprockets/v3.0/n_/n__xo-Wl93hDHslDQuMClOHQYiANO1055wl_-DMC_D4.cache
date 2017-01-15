@@ -1,0 +1,13 @@
+I"(function() {
+  $(document).on("click", ".file-activate", function(ev) {
+    var selector;
+    selector = $(this).attr("for");
+    return $(selector).click();
+  });
+
+  $(document).on("change", ".remotipart", function(ev) {
+    return $(this).parent().submit();
+  });
+
+}).call(this);
+:ET

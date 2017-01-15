@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title FMC
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    %p{style:"#{'display: none;' if notice.nil? && alert.nil?}"}
+      = notice
+      = alert
+    = yield

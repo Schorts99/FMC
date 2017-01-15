@@ -1,0 +1,13 @@
+I"-(function() {
+  App.post = App.cable.subscriptions.create("PostChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      if (data.action === "new_post") {
+        return $("#posts .data").prepend(data.message);
+      }
+    }
+  });
+
+}).call(this);
+:ET

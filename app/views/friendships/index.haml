@@ -1,0 +1,22 @@
+.top-space
+	.row.center-xs
+		.col-xs-10.col-md-11
+			.white.large-padding
+				.border-bottom.padding-bottom
+					%p.text-left Solicitudes de amistad
+					.less-top-margin
+						= render @pending_friendships
+				.border-bottom.padding-bottom
+					%p.text-left Mis amigos
+					.less-top-margin
+						= render @accepted_friendships
+						= render @accepted_requests
+				.top-space
+					%p.text-left Solicitudes enviadas
+					.less-top-margin
+						= render @pending_requests
+				.border-bottom.padding-bottom
+				.top-space
+					%p.text-left Bloqueados
+					.less-top-margin
+						= render @blocked_friendships

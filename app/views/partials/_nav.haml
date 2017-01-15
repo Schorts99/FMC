@@ -1,0 +1,32 @@
+%header.mdl-layout__header
+  %div.mdl-layout__header-row
+    %img.more-right-margin{:src => "logo.png", :alt => "Facultad de Medicina y Cirugía de la UABJO", :width => "50"}
+    %span.mdl-layout-title= link_to "Facultad de Medicina y Cirugía", root_path, class:"white-text remove-underline"
+    %div.mdl-layout-spacer
+    %nav.mdl-navigation.mdl-layout--large-screen-only.relative
+      -if student_signed_in?
+        #notifications
+        .right-space
+          =link_to "/notifications", class:"circle red white-text", id:"notification", remote: true, data:{type:"script"} do
+            = current_student.unviewed_notifications_count
+        = link_to "Mis amigos", friendships_path, class:"white-text right-space remove-underline"
+        = circle_img current_student.avatar.url(:thumb), 30
+        = link_to current_student.name + " " +current_student.last_name, current_student, class:"white-text right-space remove-underline medium-left-space"
+        = link_to "Cerrar sesión", destroy_student_session_path, method: :delete, class:"white-text remove-underline"
+-if student_signed_in?
+  %div.mdl-layout__drawer
+    %span.mdl-layout-title=link_to "UABJO", "http://www.uabjo.mx/", class:"remove-underline"
+    %nav.mdl-navigation
+      .mdl-navigation__link Grupo
+      .mdl-navigation__link Laboratorios
+      .mdl-navigation__link Calendario
+      .mdl-navigation__link Calificaciones
+      .mdl-navigation__link UptoDate®
+      .mdl-navigation__link Elibrary®
+      .mdl-navigation__link Mapa
+      .mdl-navigation__link= link_to "Reglamento", "/reglamento", class:"remove-underline"
+      %br
+      %br
+      %br
+      %br
+      .mdl-navigation__link= link_to "Cuenta"

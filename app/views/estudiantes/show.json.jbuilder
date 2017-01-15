@@ -1,0 +1,1 @@
+json.extract! @student, :id, :rfc, :email, :name, :last_name, :grade, :group, :bio

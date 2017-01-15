@@ -1,0 +1,44 @@
+.row.center-xs
+	.col-xs-10.col-sm-9.col-md-9.col-lg-8
+		.white.mdl-shadow--2dp.top-space.relative
+			.cover-area.white-text.text-left.cover.relative#student-cover{style:"background-image: url(#{@student.cover.url(:medium)})"}
+				-if current_student == @student
+					= render "estudiantes/menu_avatar"
+				.top-space#student-avatar
+					=circle_img @student.avatar.url(:medium),150
+			%section.border-bottom.top-space
+				.row.middle-xs
+					.col-xs.col-md-8.less-right-margin
+						%h1.no-margin.medium
+							%span= best_in_place_if current_student == @student, @student, :name
+							%span= best_in_place_if current_student == @student, @student, :last_name
+						%p
+							= @student.rfc
+					-if @are_friends
+						.col-md-3
+							%p
+								Grado:
+								%span= best_in_place_if current_student == @student, @student, :grade
+							%p.less-top-margin
+								Grupo:
+								%span= best_in_place_if current_student == @student, @student, :group
+					.col-xs-4.col-sm-2
+						-unless @are_friends
+							= button_to friendships_path(friend_id: @student.id), method: :post, remote: true, :"data-type" => "script", class:"less-top-margin mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect less-right-margin" do
+								%i.material-icons person_add
+			.large-padding
+				.row
+					.col-xs
+						= @student.followers.count + @student.friendships.count
+						Amigos
+					.col-xs
+						= @student.posts.count
+						Publicaciones
+				.row.center-xs
+					.col-xs-8.col-md-10
+						%span= best_in_place_if current_student == @student, @student, :bio
+			.top-space
+				= form_for @student, remote: true do |f|
+					= f.file_field :avatar, class:"remotipart"
+				= form_for @student, remote: true do |f|
+					= f.file_field :cover, class:"remotipart"

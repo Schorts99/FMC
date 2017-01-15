@@ -1,0 +1,8 @@
+.full-height.row.middle-xs.white-text.center-xs.main-background.no-margin
+	.col-xs-7.col-sm-6.col-md-5.col-lg-4
+		.big-padding.blue.text-left.white-text
+			%h2.center-xs.no-margin.bold.light-blue-text Registro
+			.center-xs.middle-xs.top-space
+				%img{:src => "logo.png", :alt => "Facultad de Medicina y Cirugía de la UABJO", :width => "139"}
+			.top-space
+				= render "devise/registrations/new"

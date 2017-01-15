@@ -1,0 +1,17 @@
+%article.large-padding.white.top-space.mdl-shadow--2dp
+	.row.middle-xs
+		.col-xs-2.col-md-1
+			= circle_img post.student.avatar.url(:thumb), 40
+		.col-xs-7.col-md-7.text-left
+			= post.student.name + " " + post.student.last_name
+		.col-xs-3.col-md-4.text-right
+			Grado:
+			= post.student.grade
+			%p
+				Grupo:
+				= post.student.group
+	%hr.no-margin
+	%p.text-left.medium-top-space
+		= post.body
+	.text-right.no-margin.less-top-margin.little
+		= time_tag(post.created_at)

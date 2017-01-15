@@ -1,0 +1,15 @@
+.col-xs-12.col-md-12
+  %h1.center-xs Publicaciones
+
+  %table.large-padding.white.top-space.mdl-shadow--2dp
+
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td= post.body
+          %td= link_to 'Ver', post
+          %td= link_to 'Editar', edit_post_path(post)
+          %td= link_to 'Eliminar', post, :method => :delete, :data => { :confirm => '¿Estas seguro?' }
+%br
+
+= link_to 'Nueva publicación', new_post_path

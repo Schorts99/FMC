@@ -1,0 +1,15 @@
+.full-height.row.middle-xs.white-text.center-xs.main-background.no-margin
+	.col-xs-7.col-sm-6.col-md-5.col-lg-4
+		.big-padding.blue.text-left.white-text
+			%h2.text-center.no-margin.bold.light-blue-text Recuperar contraseña
+			.top-space
+				= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+					= devise_error_messages!
+					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+						= f.email_field :email, autofocus: true, class:"mdl-textfield__input"
+						= f.label :email, "Correo electrónico", class:"mdl-textfield__label grey-text"
+					.top-space
+						.middle-xs.text-left
+							= f.submit "Enviame las instrucciones de recuperación", class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+						.top-space
+							= render "devise/shared/links"

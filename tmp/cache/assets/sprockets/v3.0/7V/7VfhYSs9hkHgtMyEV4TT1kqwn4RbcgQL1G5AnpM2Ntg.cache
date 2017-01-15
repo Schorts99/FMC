@@ -1,0 +1,17 @@
+I"¨(function() {
+  App.notification = App.cable.subscriptions.create("NotificationChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      if (data.action === "new_notification") {
+        snack({
+          message: "Tienes una nueva notificaci√≥n",
+          timeout: 5000
+        });
+        return $("#notification").html(data.message);
+      }
+    }
+  });
+
+}).call(this);
+:ET

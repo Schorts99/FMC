@@ -1,0 +1,41 @@
+I"™(function() {
+  window.snack = function(options) {
+    return document.querySelector("#global-snackbar").MaterialSnackbar.showSnackbar(options);
+  };
+
+  document.addEventListener("turbolinks:load", function() {
+    return componentHandler.upgradeDom();
+  });
+
+  this.addEventListener("popstate", function(e) {
+    return Turbolinks.visit(e.target.location);
+  });
+
+  window.loading = false;
+
+  $(document).on("turbolinks:load turbolinks:fetch", function() {
+    $(".close-parent").on("click", function(ev) {
+      return $(this).parent().slideUp();
+    });
+    $("#notification").on("click", function(ev) {
+      if ($("#notifications").hasClass("active")) {
+        ev.preventDefault();
+      }
+      $("#notifications").toggleClass("active");
+      return $("#notifications").hasClass("active");
+    });
+    $(".best_in_place").best_in_place();
+    return $(".mdl-layout").scroll(function() {
+      var url;
+      if (!window.loading && $(".mdl-layout").scrollTop() > $(document).height() - 100) {
+        window.loading = true;
+        url = $(".next_page").attr("href");
+        if (url) {
+          return $.getScript(url);
+        }
+      }
+    });
+  });
+
+}).call(this);
+:ET

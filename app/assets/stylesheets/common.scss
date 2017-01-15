@@ -1,0 +1,87 @@
+html, body{
+	height: 100%;
+	margin: 0px;
+}
+.absolute{
+	position: absolute;
+}
+.relative{
+	position: relative;
+}
+.full-height{
+	height: 100%;
+}
+.full-width{
+	width: 100%;
+}
+.right-space{
+	margin-right: 1.5em;
+}
+.no-margin{
+	margin: 0;
+}
+.less-top-margin{
+	margin-top: -10px;
+}
+.less-right-margin{
+	margin-right: -30px;
+}
+.more-right-margin{
+	margin-right: 10px;
+}
+.medium-left-space{
+	margin-left: 7px;
+}
+.medium{
+	font-size: 1.2em;
+}
+.little{
+	font-size: 0.7em;
+}
+.large-padding{
+	padding: 10px 15px;
+}
+.padding-bottom{
+	padding-bottom: 1em;
+}
+.big-padding{
+	padding: 2em 1.5em;
+}
+.cover-area{
+	padding: 4em 2em;
+}
+.border-bottom{
+	border-bottom: 1px solid currentcolor;
+}
+.top-space{
+	margin-top: 1em;
+}
+.medium-top-space{
+	margin-top: 0.5em;
+}
+.remove-bullet-points{
+	list-style-type: none;
+	margin: 0;
+}
+.remove-underline{
+	text-decoration: none;
+}
+.underline{
+	text-decoration: underline;
+}
+.text-left{
+	text-align: left;
+}
+.text-right{
+	text-align: right;
+}
+.text-center{
+	text-align: center;
+}
+.circle{
+	border-radius: 50%;
+}
+.max-height-rule{
+	max-height: 450px;
+	height: 450px;
+}

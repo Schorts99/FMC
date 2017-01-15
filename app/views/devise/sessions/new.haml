@@ -1,0 +1,26 @@
+.full-height.row.middle-xs.white-text.center-xs.main-background.no-margin
+	.col-xs-7.col-sm-6.col-md-5.col-lg-4
+		.big-padding.blue.text-left.white-text.medium-top-space
+			%h2.center-xs.no-margin.bold.light-blue-text Ingreso
+			.center-xs.middle-xs.top-space
+				%img{:src => "logo.png", :alt => "Facultad de Medicina y Cirugía de la UABJO", :width => "214"}
+			.top-space
+				= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+					= devise_error_messages!
+					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+						= f.email_field :email, autofocus: true, class:"mdl-textfield__input"
+						= f.label :email, "Correo electrónico", class:"mdl-textfield__label grey-text"
+					.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+						= f.password_field :password, autofocus: true, class:"mdl-textfield__input"
+						= f.label :password, "Contraseña", class:"mdl-textfield__label grey-text"
+					.top-space
+						.row.middle-xs.text-left
+							.col-xs-7.col-md-6
+								= f.submit "Ingresar", class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+							.col-xs-5.col-md-6
+								.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect
+									-if devise_mapping.rememberable?
+										= f.check_box :remember_me, class:"mdl-checkbox__input"
+										= f.label :remember_me, "Recordar", class:"mdl-checkbox__label"
+					.top-space
+						= render "devise/shared/links"

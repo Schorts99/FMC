@@ -1,0 +1,4 @@
+%p
+	= notification.item.student.name + " " + notification.item.student.last_name + " te envio una solicitud de amistad"
+	= link_to notification_path(id: notification.id, notification:{viewed: true}), method: :put do
+		&#9989;
